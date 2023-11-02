@@ -13,8 +13,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   justify-items: center;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0px 2px 2px #ddd;
+  /* border-bottom: 1px solid #ddd; */
+  /* box-shadow: 0px 2px 2px #ddd; */
 
   h3 {
     font-size: 25px;

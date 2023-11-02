@@ -1,17 +1,20 @@
-import React from "react";
 import styled from "styled-components";
+import Filter from "./Filter/Filter.styles";
+import RadioButton from "./Filter/RadioButton";
 
 const Sidebar = () => {
   return (
     <Container>
-      <h3>Filters</h3>
+      <h3 style={{ marginBottom: "20px" }}>Filters</h3>
+      <Filter />
+      <RadioButton />
     </Container>
   );
 };
 
 const Container = styled.div`
   width: 300px;
-  border: 2px solid red;
+  padding: 20px;
 `;
 
 export default Sidebar;

@@ -12,11 +12,13 @@ const Products = () => {
 };
 
 const Container = styled.div`
+  height: 100%;
   width: 90%;
-  margin: 40px auto 0;
+  padding-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+  overflow-y: auto;
 `;
 
 export default Products;

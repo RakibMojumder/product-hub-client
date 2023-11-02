@@ -14,6 +14,7 @@ const ProductsContainer = () => {
 const Container = styled.div`
   display: flex;
   gap: 20px;
+  height: 100%;
 `;
 
 export default ProductsContainer;
