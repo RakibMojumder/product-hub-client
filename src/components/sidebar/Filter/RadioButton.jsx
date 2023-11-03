@@ -1,17 +1,35 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { GLOBAL_CONTEXT } from "../../../context/GlobalSateProvider";
 
 const RadioButton = () => {
+  const { setSortValue } = useContext(GLOBAL_CONTEXT);
+
+  const handleChange = (e) => {
+    setSortValue(e.target.value);
+  };
+
   return (
     <Container>
-      <h4>Sort By</h4>
+      <h4>Sort By Price</h4>
       <label className="radio-container">
         Low to High
-        <input type="radio" name="radio" />
+        <input
+          onChange={(e) => handleChange(e)}
+          type="radio"
+          name="radio"
+          value="price"
+        />
         <span className="checkmark"></span>
       </label>
       <label className="radio-container">
         High to Low
-        <input type="radio" name="radio" />
+        <input
+          onChange={(e) => handleChange(e)}
+          type="radio"
+          name="radio"
+          value="-price"
+        />
         <span className="checkmark"></span>
       </label>
     </Container>
@@ -48,12 +66,12 @@ const Container = styled.div`
     left: 0;
     height: 25px;
     width: 25px;
-    border: 1px solid #aaa;
+    border: 1px solid #111;
     border-radius: 50%;
   }
 
   .radio-container input:checked ~ .checkmark {
-    background-color: #232121;
+    background-color: white;
   }
 
   .checkmark:after {
@@ -72,7 +90,7 @@ const Container = styled.div`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: white;
+    background: #232121;
   }
 `;
 

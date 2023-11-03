@@ -1,24 +1,61 @@
 import styled from "styled-components";
 import Product from "./Product.styles";
+import { useContext } from "react";
+import { GLOBAL_CONTEXT } from "../context/GlobalSateProvider";
+import Pagination from "./Pagination.styles";
 
 const Products = () => {
+  const { products } = useContext(GLOBAL_CONTEXT);
+
   return (
     <Container>
-      {[...Array(10)].map((_, index) => (
-        <Product key={index} />
-      ))}
+      {products.length > 0 ? (
+        <>
+          <div className="product-container">
+            {products.map((product) => (
+              <Product key={product._id} product={product} />
+            ))}
+          </div>
+          <Pagination />
+        </>
+      ) : (
+        <div className="no-product-found">No product found</div>
+      )}
     </Container>
   );
 };
 
 const Container = styled.div`
   height: 100%;
-  width: 90%;
-  padding-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  padding: 40px 0;
   overflow-y: auto;
+
+  .no-product-found {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .product-container {
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  @media only screen and (min-width: 620px) {
+    .product-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .product-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .product-container {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
 `;
 
 export default Products;
